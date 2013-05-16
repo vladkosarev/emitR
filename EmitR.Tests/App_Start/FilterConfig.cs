@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace EmitR.Tests
+namespace EmitRLib.Tests
 {
     public class FilterConfig
     {

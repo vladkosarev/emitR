@@ -19,7 +19,7 @@ Server connected event emitter. Trigger events on the server and respond to them
 
   Add **emitR** using
   ```CSharp
-  using emitR;
+  using EmitRLib;
   ```
 
 You are ready to use **emitR**

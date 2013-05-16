@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/vladkosarev/emitR/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/vladkosarev/emitR</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.SignalR" version="1.0" />
+    </dependencies>
+  </metadata>
+</package>

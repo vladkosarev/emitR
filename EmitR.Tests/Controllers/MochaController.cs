@@ -1,4 +1,4 @@
-namespace EmitR.Tests.Controllers
+namespace EmitRLib.Tests.Controllers
 {
     using System.Web.Mvc;
 

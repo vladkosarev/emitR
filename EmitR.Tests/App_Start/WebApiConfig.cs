@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace EmitR.Tests
+namespace EmitRLib.Tests
 {
     public static class WebApiConfig
     {

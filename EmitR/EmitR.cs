@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 
-namespace EmitR
+namespace EmitRLib
 {
     public static class EmitR
     {

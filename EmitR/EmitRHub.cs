@@ -13,5 +13,10 @@ namespace EmitRLib
         {
             Groups.Remove(Context.ConnectionId, type);
         }
+
+        public void Emit(string type, object[] args)
+        {
+            EmitR.EmitFromClient(Context.ConnectionId, type, args);
+        }
     }
 }

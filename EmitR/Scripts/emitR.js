@@ -2,12 +2,12 @@
     var events = {};
     var maxListeners = 10;
     var hub = $.connection.emitRHub;
-    var ready = false;
-    var initializing = false;
-
     hub.client.emit = function () {
+        this.serverEmit = true;
         emitR.emit.apply(this, [arguments[0]].concat(arguments[1]));
     };
+    var ready = false;
+    var initializing = false;    
 
     var init = function () {
         var $deferred = $.Deferred();
@@ -17,7 +17,7 @@
                 .done(
                 function () {
                     emitR.ready = true;
-                    emitR.initializing = false;
+                    emitR.initializing = false;                    
                     $deferred.resolve();
                 })
                 .fail(
@@ -40,7 +40,6 @@
     };
 
     var emit = function (type) {
-
         var handler, len, args, i, listeners;
 
         if (!events)
@@ -82,7 +81,8 @@
             for (i = 0; i < len; i++)
                 listeners[i].apply(this, args);
         }
-
+        
+        if(!this.serverEmit) hub.server.emit(arguments[0], Array.prototype.slice.call(arguments, 1));
         return true;
     };
 

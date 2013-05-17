@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Http;
 using Newtonsoft.Json.Linq;
-using EmitRLib;
 
 namespace EmitRLib.Tests.Controllers
 {

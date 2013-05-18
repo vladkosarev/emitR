@@ -55,12 +55,11 @@ Client code -
             emitR.on("newmessage", function (message) {
                 $("#chatWindow").append(message + "<br/>");
             });
-        });
-
-        $('#message').submit(function () {
-            emitR.emit("newmessage", $(this).find("#messageText").val());
-            return false;
-        });
+			$('#message').submit(function () {
+				emitR.emit("newmessage", $(this).find("#messageText").val());
+				return false;
+			});
+        });        
     });
 </script>
 </html>

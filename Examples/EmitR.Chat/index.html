@@ -1,19 +1,19 @@
 ﻿<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>EmitR Chat Demo</title>
     <!DOCTYPE html>
 </head>
 
-    <body>
-        <form id="message">
-            <input type="text" id="messageText" value="" /><input type="submit" value="Send" />
-        </form>
-        <div id="chatWindow"></div>
-    </body>
+<body>
+    <form id="message">
+        <input type="text" id="messageText" value="" /><input type="submit" value="Send" />
+    </form>
+    <div id="chatWindow"></div>
+</body>
 
 <script type="text/javascript" src="/Scripts/jquery-1.6.4.js"></script>
 <script type="text/javascript" src="/Scripts/jquery.signalR-1.1.0.js"></script>
-<script type="text/javascript" src='/signalr/hubs'></script>
+<!--<script type="text/javascript" src='/signalr/hubs'></script>-->
 <script type="text/javascript" src="/Scripts/emitR.js"></script>
 
 <script type="text/javascript">
@@ -26,7 +26,7 @@
                 emitR.emit("newmessage", $(this).find("#messageText").val());
                 return false;
             });
-        });        
+        });
     });
 </script>
 </html>

@@ -9,6 +9,7 @@ namespace EmitRLib.Plugins
 {
     public static class FileChange
     {
+        public const string EventName = "emitr.plugins.filechange";
         private static List<FileSystemWatcher> watchers = new List<FileSystemWatcher>();
 
         public static void Watch(IList<string> filePaths)
@@ -26,7 +27,7 @@ namespace EmitRLib.Plugins
 
         private static void ChangeDetected(object source, FileSystemEventArgs e)
         {
-            EmitR.Emit("emitr.plugins.filechange", e.ChangeType.ToString(), e.Name);            
+            EmitR.Emit(EventName, e.ChangeType.ToString(), e.Name);            
         }
     }
 }

@@ -1,12 +1,13 @@
 ﻿<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>EmitR FileChange Plugin Demo</title>
     <!DOCTYPE html>
 </head>
 
-    <body>        
-        <div id="fileChange">No File Changes.<br /></div>
-    </body>
+<body>
+    <div id="fileChange">No File Changes.<br />
+    </div>
+</body>
 
 <script type="text/javascript" src="/Scripts/jquery-1.6.4.js"></script>
 <script type="text/javascript" src="/Scripts/jquery.signalR-1.1.0.js"></script>
@@ -21,7 +22,7 @@
                 $("#fileChange").append(fileName + " " + changeType + "<br/>");
                 $.getScript("/Scripts/" + fileName);
             });
-        });        
+        });
     });
 </script>
 </html>

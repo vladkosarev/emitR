@@ -24,10 +24,11 @@ namespace EmitR.Example.Plugin.FileChange
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            RouteTable.Routes.MapHubs();
+            // get ChangeMe.js file path and pass it to FileChange Plugin
             var filePath = Path.GetFullPath(Path.Combine(AssemblyDirectory, "../Scripts/ChangeMe.js"));
             EmitRLib.Plugins.FileChange.Watch(new List<string> { filePath });
 
+            // start a worker that updates ChangeMe.js every five seconds
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += (a, r) =>
             {

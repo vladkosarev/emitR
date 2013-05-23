@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Web;
 using EmitRLib;
 
 // General Information about an assembly is controlled through the following 
@@ -36,4 +35,3 @@ using EmitRLib;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.3")]
 [assembly: AssemblyFileVersion("0.3")]
-[assembly: PreApplicationStartMethod(typeof(Startup), "Start")]

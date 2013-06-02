@@ -4,8 +4,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Threading;
-using System.Web.Routing;
-using EmitRLib.Plugins;
 
 namespace EmitR.Example.Plugin.FileChange
 {
@@ -15,9 +13,9 @@ namespace EmitR.Example.Plugin.FileChange
         {
             get
             {
-                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-                UriBuilder uri = new UriBuilder(codeBase);
-                string path = Uri.UnescapeDataString(uri.Path);
+                var codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                var uri = new UriBuilder(codeBase);
+                var path = Uri.UnescapeDataString(uri.Path);
                 return Path.GetDirectoryName(path);
             }
         }
@@ -29,7 +27,7 @@ namespace EmitR.Example.Plugin.FileChange
             EmitRLib.Plugins.FileChange.Watch(new List<string> { filePath });
 
             // start a worker that updates ChangeMe.js every five seconds
-            BackgroundWorker bw = new BackgroundWorker();
+            var bw = new BackgroundWorker();
             bw.DoWork += (a, r) =>
             {
                 var  counter = 1;
@@ -37,7 +35,7 @@ namespace EmitR.Example.Plugin.FileChange
                 {
                     var changemejs = "$(\"#fileChange\").append(\"I'm ChangeMe.js version " + counter++ + ".0 <br/>\")";
 
-                    StreamWriter file = new System.IO.StreamWriter(r.Argument as string);
+                    var file = new StreamWriter(r.Argument as string);
                     file.WriteLine(changemejs);
                     file.Close();                    
                     Thread.Sleep(5000);

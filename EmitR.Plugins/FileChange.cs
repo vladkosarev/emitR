@@ -1,33 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmitRLib.Plugins
 {
     public static class FileChange
     {
         public const string EventName = "emitr.plugins.filechange";
-        private static List<FileSystemWatcher> watchers = new List<FileSystemWatcher>();
+        private static readonly List<FileSystemWatcher> Watchers = new List<FileSystemWatcher>();
 
         public static void Watch(IList<string> filePaths)
         {
             foreach (var filePath in filePaths)
             {
-                var watcher = new FileSystemWatcher(Path.GetDirectoryName(filePath));
-                watcher.Filter = Path.GetFileName(filePath);
-                watcher.NotifyFilter = NotifyFilters.LastWrite;
-                watcher.Changed += new FileSystemEventHandler(ChangeDetected);
+                var directoryName = Path.GetDirectoryName(filePath);
+                if (directoryName == null) continue;
+                var watcher = new FileSystemWatcher(directoryName)
+                    {
+                        Filter = Path.GetFileName(filePath),
+                        NotifyFilter = NotifyFilters.LastWrite
+                    };
+                watcher.Changed += ChangeDetected;
                 watcher.EnableRaisingEvents = true;
-                watchers.Add(watcher);
+                Watchers.Add(watcher);
             }
         }
 
         private static void ChangeDetected(object source, FileSystemEventArgs e)
         {
-            EmitR.Emit(EventName, e.ChangeType.ToString(), e.Name);            
+            EmitR.Emit(EventName, e.ChangeType.ToString(), e.Name);
         }
     }
 }

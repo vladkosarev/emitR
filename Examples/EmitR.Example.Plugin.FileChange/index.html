@@ -1,28 +1,27 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>EmitR FileChange Plugin Demo</title>
-    <!DOCTYPE html>
 </head>
 
 <body>
     <div id="fileChange">No File Changes.<br />
     </div>
-</body>
+    <script type="text/javascript" src="/Scripts/jquery-1.6.4.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.signalR-1.1.1.js"></script>
+    <script type="text/javascript" src='/signalr/hubs'></script>
+    <script type="text/javascript" src="/Scripts/emitR.js"></script>
+    <script type="text/javascript" src="/Scripts/ChangeMe.js"></script>
 
-<script type="text/javascript" src="/Scripts/jquery-1.6.4.js"></script>
-<script type="text/javascript" src="/Scripts/jquery.signalR-1.1.1.js"></script>
-<script type="text/javascript" src='/signalr/hubs'></script>
-<script type="text/javascript" src="/Scripts/emitR.js"></script>
-<script type="text/javascript" src="/Scripts/ChangeMe.js"></script>
-
-<script type="text/javascript">
-    $(function () {
-        emitR.init().done(function () {
-            emitR.on("emitr.plugins.filechange", function (changeType, fileName) {
-                $("#fileChange").append(fileName + " " + changeType + "<br/>");
-                $.getScript("/Scripts/" + fileName);
+    <script type="text/javascript">
+        $(function () {
+            emitR.init().done(function () {
+                emitR.on("emitr.plugins.filechange", function (changeType, fileName) {
+                    $("#fileChange").append(fileName + " " + changeType + "<br/>");
+                    $.getScript("/Scripts/" + fileName);
+                });
             });
         });
-    });
-</script>
+    </script>
+</body>
 </html>

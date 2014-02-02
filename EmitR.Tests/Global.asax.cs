@@ -9,8 +9,7 @@ namespace EmitRLib.Tests
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
-        {
-            RouteTable.Routes.MapHubs();
+        {            
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Owin;
+using Owin;
+
+[assembly: OwinStartup(typeof(EmitRLib.Startup))]
 
 namespace EmitRLib
 {
     public class Startup
     {
-        public static void Start()
+        public void Configuration(IAppBuilder app)
         {
-            //RouteTable.Routes.MapHubs();
-            //RouteTable.Routes.MapConnection<EmitREndPoint>("emitr", "/emitr");
+            app.MapSignalR();
         }
     }
-} 
+}

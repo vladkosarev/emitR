@@ -1,4 +1,6 @@
-﻿var emitR = function () {
+﻿'use strict';
+
+var emitR = function () {
     var events = {};
     var maxListeners = 10;
     var hub = $.connection.emitRHub;
